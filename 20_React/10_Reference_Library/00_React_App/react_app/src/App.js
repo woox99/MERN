@@ -1,15 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-import UserForm from './components/UserForm';
-import UserForm2 from './components/UserForm2';
+import React, { useState } from 'react';
+import MessageForm from './components/MessageForm';
+import MessageDisplay from './components/MessageDisplay';
 
 function App() {
+  // Lifting State includes creating it in a common parent that can pass data down to ALL
+  //    components that will need access to the getter, setter or both
+  const [currentMsg, setCurrentMsg] = useState("There are no messages");
+
+  const getMsg = (newMessage) => {
+    setCurrentMsg(newMessage);
+  }
+
   return (
-    <div className="App">
-      <UserForm></UserForm>
-      <UserForm2></UserForm2>
-    </div>
+    <>
+      {/* passing a function through props instead of vairable allways us to use it in MessageForm */}
+      <MessageForm retreiveMsg = {getMsg}  />
+      <MessageDisplay message={ currentMsg } />
+    </>
   );
 }
 
 export default App;
+

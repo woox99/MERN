@@ -12,15 +12,14 @@ const UserForm = (props) => {
         e.preventDefault();
 
         // shorthand ES6 syntax for building an object
-        const newUser = { 
-            username:username,
-            email:email,
-            password:password
+        const newUser = {
+            username: username,
+            email: email,
+            password: password
         };
 
         console.log("Welcome", newUser);
 
-        // resets useState variables after submit
         setUsername("");
         setEmail("");
         setPassword("");
@@ -29,18 +28,14 @@ const UserForm = (props) => {
         setHasBeenSubmitted(true);
     };
 
-    const formMessage = () => {
-        if (hasBeenSubmitted) {
-            return "Thank you for submitting the form!";
-        } else {
-            return "Welcome, please submit the form";
-        }
-    };
-
     return (
         <form onSubmit={createUser}>
-            <h1>UserForm.js File</h1>
-            <h3>{formMessage()}</h3>
+            {/* Ternary Operators */}
+            {
+                hasBeenSubmitted ?
+                <h3>Thank you for submitting the form!</h3> :
+                <h3>Welcome, please submit the form.</h3>
+            }
             <div>
                 <label>Username: </label>
                 <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />

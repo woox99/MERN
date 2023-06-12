@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.css';
 // Import header.js function
 import UserForm from './components/UserForm';
 import DisplayBoxes from './components/DisplayBoxes';

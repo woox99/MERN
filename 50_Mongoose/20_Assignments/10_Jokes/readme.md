@@ -1,4 +1,4 @@
-1. run 'nodemon .\server\' to start server
+1. cd into 'server' and run 'nodemon .\server\' to start server
 
 2. after server is running use Postman and nagivate to GET http://localhost:8000/api/jokes/ to see jokes
 

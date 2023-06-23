@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-const PersonForm= () => {
+
+const PersonForm = props => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName ] = useState("");
+    const {people, setPeople} = props
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -13,7 +15,8 @@ const PersonForm= () => {
         })
             .then( res => {
                 console.log(res);
-                console.log(res.date);
+                console.log(res.data);
+                setPeople( [...people, res.data])
             })
             .catch( err => {
                 console.log(err);
@@ -36,5 +39,6 @@ const PersonForm= () => {
         </form>
     )
 }  
+
 export default PersonForm;
 

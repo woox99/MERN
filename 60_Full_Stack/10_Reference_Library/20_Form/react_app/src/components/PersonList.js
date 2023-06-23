@@ -14,7 +14,7 @@ const PersonList = (props) => {
             .catch( err => {
                 console.log(err);
             })
-    }, [])
+    }, [people])
 
     return (
         <div>

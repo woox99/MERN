@@ -45,7 +45,7 @@ const ProductForm = props => {
                         <label>Product Description: </label>
                         <input type="text" onChange={ (e) => setDescription(e.target.value)} value={description} />
                     </p>
-                    <input type="submit" value='Create' />
+                    <input className='sub-btn' type="submit" value='Create' />
                 </div>
             </form>
         </div>

@@ -22,3 +22,35 @@
   padding-right: 20px;
   border-radius: 5px;
 }
+.product-form input{
+  height: 20px;
+}
+.product-form .sub-btn{
+  height: 25px;
+  background-color: rgb(134, 160, 255);
+  border: 1px solid black;
+  border-radius: 2px;
+  color: white;
+}
+
+.product-list a{
+  text-decoration: none;
+}
+.product-list button{
+  margin-left: 10px;
+  background-color: rgb(249, 154, 154);
+  border: 1px solid black;
+  border-radius: 2px;
+}
+.product-list .item{
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail button{
+  margin-left: 10px;
+  background-color: rgb(249, 154, 154);
+  border: 1px solid black;
+  border-radius: 2px;
+}

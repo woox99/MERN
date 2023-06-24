@@ -21,6 +21,7 @@ const Detail = props => {
         <div>
             <p>First Name: {person.firstName}</p>
             <p>Last Name: {person.lastName}</p>
+            
         </div>
     );
 }

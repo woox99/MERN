@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import '../App.css';
+import DeleteButton from './DeleteButton';
 
 const ProductList = props => {
     const {products, setProducts} = props
@@ -14,11 +15,6 @@ const ProductList = props => {
             .catch( err => console.log(err))
     }, [products])
 
-    const deleteProduct = (productId) => {
-        axios.delete('http://localhost:8000/api/products/' + productId)
-            .catch(err => console.log(err))
-    }
-
     return (
         <div className='product-list'>
             <h2>Products List</h2>
@@ -30,7 +26,7 @@ const ProductList = props => {
                     <span> | </span> 
                     <Link to={`/update/${product._id}`}>Edit</Link>
                     </div>
-                    <button onClick={ (e) => deleteProduct(product._id)}>Delete</button>
+                    <DeleteButton productId={product._id} successCallback={null}/>
                 </div>
                 )
             }

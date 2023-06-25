@@ -3,34 +3,18 @@ import axios from 'axios';
 import '../App.css';
 
 const ProductForm = props => {
-    const [title, setTitle] = useState('');
-    const [price, setPrice] = useState('');
-    const [description, setDescription] = useState('');
-    const {products, setProducts} = props;
+    const [title, setTitle] = useState(props.initTitle);
+    const [price, setPrice] = useState(props.initPrice);
+    const [description, setDescription] = useState(props.initDescription);
 
     const handleSubmit = e => {
         e.preventDefault();
-
-        axios.post('http://localhost:8000/api/products', {
-            title,
-            price,
-            description
-        })
-            .then( res => {
-                setProducts( [...products, res.data ]);
-                // console.log(products);
-            })
-            .catch(err => console.log(err))
         
-        setTitle('');
-        setPrice('');
-        setDescription('');
+        props.onSubmit({title, price, description});
     }
-
 
     return (
         <div>
-            <h1>Product Manager</h1>
             <form onSubmit={handleSubmit}>
                 <div className="product-form">
                     <p className='title'>

@@ -6,13 +6,14 @@ module.exports.createAuthor = (req, res) => {
         .catch( err => res.status(400).json(err) )
 }
 
-module.exports.updateAuthor = (req, res) => {    
-    Author.findOneAndUpdate(
-        {_id: req.params.id}, 
-        req.body, 
-        {new: true,
-        runValidators: true
-        })
+module.exports.updateAuthor = (req, res) => {
+    const {fName, lName} = req.body;
+
+    if(!fName || !lName){
+        return res.status(400).json({error: "First Name and Last Name are required."})
+    }
+    
+    Author.findOneAndUpdate({_id: req.params.id}, req.body, {new: true})
         .then(author => res.json(author))
         .catch( err => res.status(400).json(err) )
 }

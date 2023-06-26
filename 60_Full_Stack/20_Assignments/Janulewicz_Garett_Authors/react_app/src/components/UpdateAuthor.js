@@ -25,8 +25,7 @@ const UpdateAuthor = props => {
         axios.post('http://localhost:8000/api/authors/' + id, author)
             .then( () => navigate('/'))
             .catch( err => {
-                console.log(err.response.data.message)
-                const errorResponse = err.response.data.message;
+                const errorResponse = err.response.data.error;
                 const errorArr = [];
                 errorArr.push(errorResponse)
                 setErrors(errorArr);

@@ -1,49 +1,51 @@
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Header from './Header';
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios'
 
 const List = () => {
-    const[playerList, setPlayerList] = useState([]);
+    const [playerList, setPlayerList] = useState([]);
 
-    useEffect( () => {
+    useEffect(() => {
         axios.get('http://localhost:8000/api/players')
             .then(res => setPlayerList(res.data))
-            .catch( err => console.log(err))
+            .catch(err => console.log(err))
     }, [playerList]);
 
     const deletePlayer = playerId => {
         axios.delete('http://localhost:8000/api/players/' + playerId)
     }
-    
-    return(
+
+    return (
         <div>
-            <Header/>
+            <Header />
             <div>
                 <Link to='/'>Player List</Link>
                 <span> | </span>
                 <Link to='/add'>Add Player</Link>
             </div>
-            <table>
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Postion</th>
-                    <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                {
-                    playerList.map( (player, index) => (
-                        <tr key={index}>
-                            <td>{player.playerName}</td>
-                            <td>{player.position}</td>
-                            <td><button onClick={ () => deletePlayer(player._id)}>Delete</button></td>
+            <div className='table-sect'>
+                <table className='table'>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Postion</th>
+                            <th>Action</th>
                         </tr>
-                    ))
-                }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {
+                            playerList.map((player, index) => (
+                                <tr key={index}>
+                                    <td>{player.playerName}</td>
+                                    <td>{player.position}</td>
+                                    <td><button onClick={() => deletePlayer(player._id)}>Delete</button></td>
+                                </tr>
+                            ))
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }

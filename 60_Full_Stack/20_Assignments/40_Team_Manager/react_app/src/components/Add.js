@@ -25,7 +25,7 @@ const Add = () => {
     }
 
     return(
-        <div>
+        <div className='add'>
             <Header/>
             <div>
                 <Link to='/'>Player List</Link>
@@ -35,10 +35,14 @@ const Add = () => {
             <div className='add-section'>
                 <h3>Add Player</h3>
                 <form onSubmit={handleSubmit}>
+                    <div>
                     <label>Player Name:</label>
                     <input type="text" onChange={ (e) => setPlayerName(e.target.value)}/>
+                    </div>
+                    <div>
                     <label>Player Postion:</label>
                     <input type="text" onChange={ (e) => setPosition(e.target.value)} />
+                    </div>
                     <input type="submit" value='Add Player'/>
                 </form>
             </div>

@@ -18,3 +18,8 @@
 1. cd into server
 2. run 'nodemon .\server.js'
 3. once you have server running and routes setup, you can use postman
+
+<!-- Installing Matieral UI -->
+<!-- Note do not use Coding Dojo imports from '@material-ui/core' -->
+1. cd into react_app and run 'npm install @mui/material @emotion/react @emotion/styled'
+

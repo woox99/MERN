@@ -7,6 +7,7 @@ const Add = () => {
     const[playerName, setPlayerName] = useState('');
     const[position, setPosition] = useState('');
     const navigate = useNavigate();
+    const [errorMsg, setErrorMsg]= useState('');
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -21,7 +22,11 @@ const Add = () => {
             ]
         })
             .then( () => navigate('/'))
-            .catch( err => console.log(err))
+            .catch( err => {
+                // console.log(err);
+                console.log(err.response.data.message)   
+                setErrorMsg(err.response.data.message);
+            })
     }
 
     return(
@@ -32,6 +37,11 @@ const Add = () => {
                 <span> | </span>
                 <Link to='/add'>Add Player</Link>
             </div>
+            {
+                errorMsg ?
+                <p>{errorMsg}</p>:
+                null
+            }
             <div className='add-section'>
                 <h3>Add Player</h3>
                 <form onSubmit={handleSubmit}>

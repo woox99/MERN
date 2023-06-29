@@ -1,0 +1,52 @@
+*{
+  /* border: 1px solid black; */
+}
+
+.App {
+  text-align: center;
+}
+a {
+  text-decoration: none;
+}
+
+.add{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-section {
+  display: flex;
+  flex-direction: column;
+  background-color: antiquewhite;
+  width: 400px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.add-section input{
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.table-sect{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header{
+  margin-bottom: 10px;
+}
+
+
+.status{
+  display: flex;
+  flex-direction: column;
+  align-items: center ;
+}
+
+.status button{
+  margin-left: 5px;
+}
+.status table, .status td, .status th{
+  border: 1px solid black;
+}

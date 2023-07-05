@@ -16,7 +16,11 @@ const Add = () => {
     return(
         <div>
             <h3>Add New Athlete</h3>
-            <Form submitFunc={createAthlete}/>
+            <Form 
+                submitFunc={createAthlete}
+                initFirstName=''
+                initLastName=''
+                initSport=''/>
         </div>
     )
 }

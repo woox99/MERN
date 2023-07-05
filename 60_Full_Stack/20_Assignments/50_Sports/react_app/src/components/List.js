@@ -22,6 +22,9 @@ const List = () => {
         navigate('/add');
     }
 
+    const deleteCallback = () => {
+    }
+
     return (
         <div className='list'>
             <h1>Athletes</h1>
@@ -29,11 +32,11 @@ const List = () => {
             {
                 athleteList.map((athlete, index) => (
                     <div key={index} className="item">
-                        <Link>{athlete.firstName} {athlete.lastName}</Link>
+                        <Link to={`/display/${athlete._id}`}>{athlete.firstName} {athlete.lastName}</Link>
                         <span> | </span>
-                        <Link>Edit</Link>
+                        <Link to={`/edit/${athlete._id}`}>Edit</Link>
                         <span> | </span>
-                        <DeleteButton athleteId={athlete._id}/>
+                        <DeleteButton athleteId={athlete._id} deleteCallback={deleteCallback}/>
                     </div>
                 ))
             }

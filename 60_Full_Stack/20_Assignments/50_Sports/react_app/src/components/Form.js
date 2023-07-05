@@ -7,9 +7,9 @@ import {
 import { useState, useEffect } from 'react';
 
 const Form = props => {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [sport, setSport] = useState('');
+    const [firstName, setFirstName] = useState(props.initFirstName);
+    const [lastName, setLastName] = useState(props.initLastName);
+    const [sport, setSport] = useState(props.initSport);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -28,15 +28,15 @@ const Form = props => {
             <form onSubmit={handleSubmit}>
                 <FormControl className='input'>
                     <InputLabel>First Name</InputLabel>
-                    <Input type='text' onChange={e => setFirstName(e.target.value)} />
+                    <Input type='text' value={firstName} onChange={e => setFirstName(e.target.value)} />
                 </FormControl>
                 <FormControl className='input'>
                     <InputLabel>Last Name</InputLabel>
-                    <Input type='text' onChange={e => setLastName(e.target.value)} />
+                    <Input type='text' value={lastName} onChange={e => setLastName(e.target.value)} />
                 </FormControl>
                 <FormControl className='input'>
                     <InputLabel>Sport</InputLabel>
-                    <Input type='text' onChange={e => setSport(e.target.value)} />
+                    <Input value={sport} type='text' onChange={e => setSport(e.target.value)} />
                 </FormControl>
                 <Button id='submit-btn' variant='contained' type='submit'>Submit</Button>
             </form>

@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from 'axios';
 import Form from './Form';
 import {useState, useEffect} from 'react';
@@ -39,6 +39,7 @@ const EditAthlete = props => {
                 initSport={sport}/>
                 :null
             }
+            <Link to='/'>Back to Athletes</Link>
         </div>
     )
 }

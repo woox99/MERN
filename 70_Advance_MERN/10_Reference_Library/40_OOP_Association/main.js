@@ -1,7 +1,7 @@
 class BankAccount {
     constructor(intRate, balance=0){
-        this.intRate = intRate
-        this.balance = balance
+        this.intRate = intRate;
+        this.balance = balance;
     }
     makeDeposit(amount){
         this.balance += amount;
@@ -19,9 +19,9 @@ class BankAccount {
 
 class User{
     constructor(username){
-        this.username = username
-        this.savings = new BankAccount(.02)
-        this.checkings = new BankAccount(0)
+        this.username = username;
+        this.savings = new BankAccount(.02);
+        this.checkings = new BankAccount(0);
     }
 }
 

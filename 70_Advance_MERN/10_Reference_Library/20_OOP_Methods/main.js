@@ -1,7 +1,7 @@
 class User {
     constructor(username) {
-        this.username = username
-        this.accountBalance = 0
+        this.username = username;
+        this.accountBalance = 0;
     }
     makeDeposit(amount) {
         this.accountBalance += amount;

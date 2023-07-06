@@ -32,3 +32,7 @@ garett.checkings.makeDeposit(50);
 
 console.log(garett.savings.balance);
 console.log(garett.checkings.balance);
+
+
+
+

@@ -9,8 +9,8 @@
 2. cd into server project and run 'npm init -y'
 3. run 'npm install express mongoose cors'
 4. create server.js in server folder
-5. create config, controller, models, routes FOLDERS
-6. config.js, controllers.js, models.js, and routes.js FILES in folders
+5. create config, controllers, models, routes FOLDERS
+6. mongoose.config.js, player.controller.js, player.model.js, and player.routes.js FILES in folders
 
 <!-- React Installs -->
 <!-- Routes -->

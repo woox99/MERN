@@ -1,6 +1,7 @@
 import './App.css';
-import AddAthlete from './components/AddAthlete';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import AddAthlete from './components/AddAthlete';
+import DisplayList from './components/DisplayList';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path='/add' element={<AddAthlete/>}/>
+        <Route path='/' element={<DisplayList/>}/>
       </Routes>
       </BrowserRouter>
     </div>

@@ -1,8 +1,13 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
+import {useNavigate, Link} from 'react-router-dom';
+import {
+    Button,
+} from '@mui/material';
 
 const DisplayList = () => {
     const [athleteList, setAthleteList] = useState([]);
+    const navigate = useNavigate();
 
     useEffect( () => {
         axios.get('http://localhost:8000/api/athletes')
@@ -12,6 +17,11 @@ const DisplayList = () => {
             })
             .catch(err => console.log(err))
     }, [])
+
+    const navigateToAdd = () => {
+        navigate('/add');
+    }
+
     return(
         <div>
             <h2>Athlete List</h2>
@@ -19,10 +29,13 @@ const DisplayList = () => {
                     athleteList.map( (athlete, index) => (
                         <div key={index}
                         className='athlete'>
-                            <p>{athlete.firstName} {athlete.lastName}</p>
+                            <Link to={`/display/${athlete._id}`}>{athlete.firstName} {athlete.lastName}</Link>
+                            <span> | </span>
+                            <Link to={`/edit/${athlete._id}`}>Edit</Link>
                         </div>
                     ))
                 }
+                <Button variant='contained' onClick={navigateToAdd}>Add Athlete</Button>
         </div>
     )
 }

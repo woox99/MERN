@@ -11,3 +11,15 @@ module.exports.findAllAthletes = (req, res) => {
         .then( athletes => res.json(athletes))
         .catch( err => res.json(err))
 }
+
+module.exports.findOneAthlete = (req, res) => {
+    Athlete.findOne({_id: req.params.id })
+        .then( athlete => res.json(athlete))
+        .catch( err => res.json(err))
+}
+
+module.exports.updateAthlete = (req, res) => {
+    Athlete.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
+        .then(athlete => res.json(athlete))
+        .catch(err => res.json(err))
+}

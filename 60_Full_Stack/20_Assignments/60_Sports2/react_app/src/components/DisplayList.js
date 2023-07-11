@@ -4,6 +4,7 @@ import {useNavigate, Link} from 'react-router-dom';
 import {
     Button,
 } from '@mui/material';
+import DeleteButton from './DeleteButton';
 
 const DisplayList = () => {
     const [athleteList, setAthleteList] = useState([]);
@@ -12,11 +13,11 @@ const DisplayList = () => {
     useEffect( () => {
         axios.get('http://localhost:8000/api/athletes')
             .then( res => {
-                console.log(res.data)
+                // console.log(res.data)
                 setAthleteList(res.data)
             })
             .catch(err => console.log(err))
-    }, [])
+    }, [athleteList])
 
     const navigateToAdd = () => {
         navigate('/add');
@@ -32,6 +33,7 @@ const DisplayList = () => {
                             <Link to={`/display/${athlete._id}`}>{athlete.firstName} {athlete.lastName}</Link>
                             <span> | </span>
                             <Link to={`/edit/${athlete._id}`}>Edit</Link>
+                            <DeleteButton athleteId={athlete._id} deleteCallback={null}>Delete</DeleteButton>
                         </div>
                     ))
                 }

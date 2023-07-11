@@ -7,9 +7,10 @@ import {
 import { useState } from 'react';
 
 const Form = props => {
-    const [first, setFirst] = useState('');
-    const [last, setLast] = useState('');
-    const [sport, setSport] = useState('');
+    const {initFirst, initLast, initSport} = props;
+    const [first, setFirst] = useState(initFirst);
+    const [last, setLast] = useState(initLast);
+    const [sport, setSport] = useState(initSport);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -31,6 +32,7 @@ const Form = props => {
                     <OutlinedInput
                         id="component-outlined"
                         label="First Name"
+                        value={first}
                         onChange={ e => setFirst(e.target.value)}
                     />
                 </FormControl>
@@ -39,6 +41,7 @@ const Form = props => {
                     <OutlinedInput
                         id="component-outlined"
                         label="Last Name"
+                        value={last}
                         onChange={ e => setLast(e.target.value)}
                     />
                 </FormControl>
@@ -47,6 +50,7 @@ const Form = props => {
                     <OutlinedInput
                         id="component-outlined"
                         label="Sport"
+                        value={sport}
                         onChange={ e => setSport(e.target.value)}
                     />
                 </FormControl>

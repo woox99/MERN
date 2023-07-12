@@ -1,44 +1,60 @@
 import {
-    Button,
     FormControl,
     InputLabel,
-    Input,
+    OutlinedInput,
+    Button
 } from '@mui/material';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const Form = props => {
-    const [firstName, setFirstName] = useState(props.initFirstName);
-    const [lastName, setLastName] = useState(props.initLastName);
-    const [sport, setSport] = useState(props.initSport);
+    const {initFirst, initLast, initSport} = props;
+    const [first, setFirst] = useState(initFirst);
+    const [last, setLast] = useState(initLast);
+    const [sport, setSport] = useState(initSport);
 
     const handleSubmit = e => {
         e.preventDefault();
 
         props.submitFunc(
             {
-                firstName: firstName,
-                lastName: lastName,
+                firstName: first,
+                lastName: last,
                 sport: sport
-            });
+            }
+        )
     }
-
 
     return (
         <div className='form'>
             <form onSubmit={handleSubmit}>
-                <FormControl className='input'>
-                    <InputLabel>First Name</InputLabel>
-                    <Input type='text' value={firstName} onChange={e => setFirstName(e.target.value)} />
+                <FormControl>
+                    <InputLabel htmlFor="component-outlined">First Name</InputLabel>
+                    <OutlinedInput
+                        id="component-outlined"
+                        label="First Name"
+                        value={first}
+                        onChange={ e => setFirst(e.target.value)}
+                    />
                 </FormControl>
-                <FormControl className='input'>
-                    <InputLabel>Last Name</InputLabel>
-                    <Input type='text' value={lastName} onChange={e => setLastName(e.target.value)} />
+                <FormControl>
+                    <InputLabel htmlFor="component-outlined">Last Name</InputLabel>
+                    <OutlinedInput
+                        id="component-outlined"
+                        label="Last Name"
+                        value={last}
+                        onChange={ e => setLast(e.target.value)}
+                    />
                 </FormControl>
-                <FormControl className='input'>
-                    <InputLabel>Sport</InputLabel>
-                    <Input value={sport} type='text' onChange={e => setSport(e.target.value)} />
+                <FormControl>
+                    <InputLabel htmlFor="component-outlined">Sport</InputLabel>
+                    <OutlinedInput
+                        id="component-outlined"
+                        label="Sport"
+                        value={sport}
+                        onChange={ e => setSport(e.target.value)}
+                    />
                 </FormControl>
-                <Button id='submit-btn' variant='contained' type='submit'>Submit</Button>
+                <Button type='submit' variant='contained'>Submit</Button>
             </form>
         </div>
     )

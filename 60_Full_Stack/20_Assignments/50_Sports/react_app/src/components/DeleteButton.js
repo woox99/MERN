@@ -1,17 +1,19 @@
-import axios from "axios";
+import {Button} from '@mui/material'
+import axios from 'axios';
 
-const DeleteButton = (props) => {
 
-    const deleteAthlete = athleteId => {
+const DeleteButton = props => {
+
+    const handleDelete = athleteId => {
         axios.delete('http://localhost:8000/api/athletes/' + athleteId)
-            .then( res => {
-                props.deleteCallback();
-            })
+            .then(props.deleteCallback)
+            .catch(err => console.log(err))
     }
 
-
     return(
-        <button onClick={() => deleteAthlete(props.athleteId)}>Delete</button>
+        <div>
+            <Button onClick={() => handleDelete(props.athleteId)}>Delete</Button>
+        </div>
     )
 }
 

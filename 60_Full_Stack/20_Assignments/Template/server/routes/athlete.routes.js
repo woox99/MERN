@@ -6,5 +6,4 @@ module.exports = app => {
     app.get('/api/athletes/:id', AthleteController.findOneAthlete);
     app.put('/api/athletes/:id', AthleteController.updateAthlete);
     app.delete('/api/athletes/:id', AthleteController.deleteAthlete);
-
 }

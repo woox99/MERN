@@ -9,7 +9,6 @@ const AddAthlete = () => {
 
     const createAthlete = athlete => {
 
-
         axios.post('http://localhost:8000/api/athletes', athlete)
             .then(() => navigate('/'))
             .catch(err => {
@@ -20,7 +19,6 @@ const AddAthlete = () => {
                 }
                 setErrors(errorArr);
             })
-
     }
 
     return (

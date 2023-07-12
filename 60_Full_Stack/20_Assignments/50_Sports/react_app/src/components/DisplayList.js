@@ -33,6 +33,7 @@ const DisplayList = () => {
                             <Link to={`/display/${athlete._id}`}>{athlete.firstName} {athlete.lastName}</Link>
                             <span> | </span>
                             <Link to={`/edit/${athlete._id}`}>Edit</Link>
+                            <span> | </span>
                             <DeleteButton athleteId={athlete._id} deleteCallback={null}>Delete</DeleteButton>
                         </div>
                     ))
